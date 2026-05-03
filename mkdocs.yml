@@ -1,0 +1,39 @@
+site_name: Lista útil para a Alemanha
+site_description: Recursos para brasileiros e falantes de português na Alemanha
+site_url: https://gabrielbahniuk.github.io/guia-brasileiros-alemanha/
+repo_url: https://github.com/gabrielbahniuk/guia-brasileiros-alemanha
+repo_name: gabrielbahniuk/guia-brasileiros-alemanha
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: pt-BR
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+      emoji_index: !!python/name:pymdownx.emoji.gemoji
+
+nav:
+  - Inicio: index.md
+  - Comece aqui:
+      - Antes de vir: guides/before-arrival.md
+      - Primeira semana: guides/first-week.md
+      - Primeiros 90 dias: guides/first-90-days.md
+  - Por tema:
+      - Advocacia: topics/legal.md
+      - Automóveis: topics/vehicles.md
+      - Comidas brasileiras: topics/brazilian-food.md
+      - Comparação de preços: topics/price-comparison.md
+      - Comunidade brasileira: topics/community.md
+      - Imóveis: topics/housing.md
+      - Produtos e serviços: topics/products-services.md
+      - Saúde: topics/health.md
+      - Outros: topics/misc.md
+  - Por cidade:
+      - Stuttgart e região: cities/stuttgart.md
+  - FAQ: faq.md

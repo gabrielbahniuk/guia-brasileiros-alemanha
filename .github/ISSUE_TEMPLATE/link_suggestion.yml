@@ -1,0 +1,45 @@
+name: Sugerir link
+description: Sugira um novo link para a lista
+title: "[Sugestao] "
+labels:
+  - suggestion
+body:
+  - type: dropdown
+    id: section
+    attributes:
+      label: Secao
+      description: Onde este link deveria entrar?
+      options:
+        - Tema (Alemanha)
+        - Cidade
+        - Outros
+    validations:
+      required: true
+  - type: input
+    id: category_or_city
+    attributes:
+      label: Tema ou cidade
+      placeholder: Ex. housing, legal, stuttgart
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Nome do recurso
+      placeholder: Ex. Nome do site/servico
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      placeholder: https://...
+    validations:
+      required: true
+  - type: textarea
+    id: note
+    attributes:
+      label: Contexto
+      description: Explique rapidamente por que este link é útil para brasileiros na Alemanha.
+    validations:
+      required: false

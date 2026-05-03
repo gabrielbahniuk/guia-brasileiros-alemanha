@@ -1,0 +1,27 @@
+name: Reportar link quebrado
+description: Informe um link que não está funcionando
+title: "[Link quebrado] "
+labels:
+  - broken-link
+body:
+  - type: input
+    id: file
+    attributes:
+      label: Arquivo
+      placeholder: Ex. docs/topics/housing.md
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL quebrada
+      placeholder: https://...
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: Detalhes
+      description: Erro observado (404, redirecionamento estranho, etc.).
+    validations:
+      required: false
