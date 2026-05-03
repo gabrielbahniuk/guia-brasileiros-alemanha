@@ -1,0 +1,37 @@
+name: Check links
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  schedule:
+    - cron: "14 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: links-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Link check (Markdown)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          args: >-
+            --config lychee.toml
+            --root-dir "${{ github.workspace }}"
+            --verbose
+            --no-progress
+            "./docs/**/*.md"
+            "./README.md"
+            "./CONTRIBUTING.md"

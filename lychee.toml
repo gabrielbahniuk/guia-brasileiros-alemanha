@@ -1,0 +1,12 @@
+# https://lychee.cli.rs/usage/config/
+#
+# Excludes are still shown in the site for readers; we only skip automated checks that
+# consistently fail on GitHub runners (bot protection, flaky hosts) or are not meant for bots.
+exclude = [
+  '^https://(www\.)?facebook\.com/',
+  '^https://(www\.)?mobile\.de/',
+  '^https://(www\.)?immobilienscout24\.de/',
+  '^https://(www\.)?immowelt\.de/',
+  '^https://(www\.)?anwalt24\.de/',
+  '^https://(www\.)?xxxlutz\.de/',
+]

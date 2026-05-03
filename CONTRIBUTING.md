@@ -22,6 +22,20 @@ Toda contribuição é bem-vinda.
 - `outros` -> `misc.md`
 - `stuttgart` -> `cities/stuttgart.md`
 
+## Verificar links
+
+O repositório usa o [lychee](https://github.com/lycheeverse/lychee) no GitHub Actions (PR/push para `main` e verificação diária por cron). Rode localmente antes de enviar mudanças com muitos links:
+
+```bash
+./scripts/check-links.sh
+```
+
+Alguns links estão **excluídos** em `lychee.toml` por bloqueio a bots automáticos, mas o link continua válido no navegador. Evite URLs curtas que só redirecionam quando puder usar o link completo (ex.: `https://www.mobile.de/`).
+
+Em horário agendado (e manualmente), o workflow **Propose removals for failing links** pode abrir **um PR normal por link** que o lychee marcou como falho (descrição do PR em inglês); você pode fechar sem merge se for falso positivo (ex.: 503 temporário).
+
+O workflow **Close stale automated link PRs** (`close-stale-link-prs.yml`) fecha sozinho PRs desses ramos **`automated/remove-link-*`** após **`STALE_AUTOMATED_LINK_PR_MAX_DAYS`** (por padrão 14 dias; dá para mudar no `env` do YAML ou pelo *workflow_dispatch* com `max_age_days`).
+
 ## Como contribuir
 
 ### 1) Abrindo issue

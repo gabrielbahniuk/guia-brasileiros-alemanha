@@ -4,7 +4,7 @@
 
 **Nível de confiança:** contatos e diretórios; confirme credenciais e especialidade antes de contratar.
 
-###### Site/App: [Anwalt24](https://anwalt24.de)
+###### Site/App: [Anwalt24](https://www.anwalt24.de/)
 
 ##### Advogados(as) brasileiros(as) na Alemanha:
 

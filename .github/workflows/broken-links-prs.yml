@@ -1,0 +1,118 @@
+# Scheduled job: opens one regular (non-draft) PR per failing link detected by lychee.
+#
+# Caps at 50 links per day (configure in scripts/lychee_failures_matrix.py).
+# To auto-close stale PRs from these branches, see close-stale-link-prs.yml.
+
+name: Propose removals for failing links
+
+on:
+  schedule:
+    - cron: "45 6 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    name: Scan with lychee
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+      count: ${{ steps.matrix.outputs.count }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Run lychee (JSON report, do not fail job)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail: false
+          format: json
+          output: lychee-report.json
+          args: >-
+            --config lychee.toml
+            --root-dir "${{ github.workspace }}"
+            --verbose
+            --no-progress
+            "./docs/**/*.md"
+            "./README.md"
+            "./CONTRIBUTING.md"
+
+      - name: Build matrix payload
+        id: matrix
+        run: |
+          python3 scripts/lychee_failures_matrix.py lychee-report.json > matrix.json
+          COUNT=$(jq -r '.include | length' matrix.json)
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          DELIM="LYCHEE_MATRIX_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}"
+          {
+            echo "matrix<<$DELIM"
+            cat matrix.json
+            echo "$DELIM"
+          } >> "$GITHUB_OUTPUT"
+
+  propose:
+    name: Propose removal
+    needs: scan
+    if: github.event.repository.fork == false && needs.scan.outputs.count != '0'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.scan.outputs.matrix) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Remove link in markdown
+        id: rm
+        env:
+          TARGET_URL: ${{ matrix.url }}
+          LINE: ${{ matrix.line }}
+        run: |
+          set +e
+          python3 scripts/remove_md_link.py "${{ matrix.path }}" "$TARGET_URL" "$LINE"
+          code=$?
+          set -e
+          if [ "$code" -eq 0 ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create pull request
+        if: steps.rm.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automated/remove-link-${{ matrix.id }}
+          delete-branch: true
+          base: main
+          commit-message: "chore(links): remove failing URL from ${{ matrix.path }}"
+          title: "chore(links): remove failing link in ${{ matrix.path }}"
+          body: |
+            Automated PR (**one failing link per PR**) after `lychee` reported an error.
+
+            **URL:** ${{ matrix.url }}  
+            **File:** `${{ matrix.path }}`  
+            **Line (from report):** `${{ matrix.line }}`  
+
+            **Details (lychee):**  
+            ${{ matrix.detail }}
+
+            Review the diff. Close without merging if this is a false positive (temporary 503, bot blocking not covered by `lychee.toml`, etc.).
+
+            Workflow: `.github/workflows/broken-links-prs.yml`

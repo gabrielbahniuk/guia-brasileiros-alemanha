@@ -42,3 +42,19 @@ Este repositório é um guia rápido com links selecionados e roteiros por fase 
 ## Contribua
 
 Para contribuir, veja o [guia](./CONTRIBUTING.md).
+
+### Verificar links (local)
+
+Antes de abrir um PR, rode o mesmo check que o GitHub Actions usa:
+
+```bash
+./scripts/check-links.sh
+```
+
+Precisa do [lychee](https://github.com/lycheeverse/lychee) no PATH.
+
+No GitHub Actions, o workflow **Check links** roda em cada PR/push na `main`, para evitar que links quebrados entrem por engano, e também uma vez por dia (cron job).
+
+Outro workflow diário abre (possivelmente) **um PR normal por link** com falha (corpo do PR em inglês; revise ou feche se não fizer sentido): `.github/workflows/broken-links-prs.yml`.
+
+Pull Requests abertos por mais de **`STALE_AUTOMATED_LINK_PR_MAX_DAYS`** dias fecham automaticamente usando `.github/workflows/close-stale-link-prs.yml`.

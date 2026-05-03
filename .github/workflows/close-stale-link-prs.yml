@@ -1,0 +1,69 @@
+# Closes open PRs whose head branch is automated/remove-link-* once they are older than N days.
+# Adjust STALE_AUTOMATED_LINK_PR_MAX_DAYS below or override via workflow_dispatch.
+
+name: Close stale automated link PRs
+
+on:
+  schedule:
+    - cron: "15 7 * * *"
+  workflow_dispatch:
+    inputs:
+      max_age_days:
+        description: "Close automated link-removal PRs older than N days"
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  pull-requests: write
+
+env:
+  STALE_AUTOMATED_LINK_PR_MAX_DAYS: "7"
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    if: github.event.repository.fork == false
+    steps:
+      - name: Close stale automated link PRs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          RAW="${{ github.event.inputs.max_age_days }}"
+          if [ -n "$RAW" ]; then
+            MAX_DAYS="$RAW"
+          else
+            MAX_DAYS="${{ env.STALE_AUTOMATED_LINK_PR_MAX_DAYS }}"
+          fi
+
+          if ! printf '%s' "$MAX_DAYS" | grep -Eq '^[0-9]+$' || [ "$MAX_DAYS" -lt 1 ]; then
+            echo "Invalid max_age_days: $MAX_DAYS" >&2
+            exit 1
+          fi
+
+          MAX_SEC=$((MAX_DAYS * 86400))
+
+          PR_JSON=$(gh pr list --state open --limit 250 \
+            --json number,createdAt,headRefName)
+
+          mapfile -t PRS < <(echo "$PR_JSON" | jq -r --argjson maxSecs "$MAX_SEC" '
+            .[]
+            | select(.headRefName | test("^automated/remove-link-"))
+            | select((now - (.createdAt | fromdateiso8601)) >= $maxSecs)
+            | .number
+          ')
+
+          COUNT="${#PRS[@]}"
+          echo "Candidates (branch automated/remove-link-*, open > ~${MAX_DAYS} days): ${COUNT}"
+
+          if [ "$COUNT" -eq 0 ]; then
+            exit 0
+          fi
+
+          for num in "${PRS[@]}"; do
+            [ -z "$num" ] && continue
+            echo "Closing #${num}..."
+            gh pr close "$num" --comment "Auto-closed after ~${MAX_DAYS} days still open (.github/workflows/close-stale-link-prs.yml). Re-open manually or re-run **Propose removals for failing links** if you still want this removal."
+          done
