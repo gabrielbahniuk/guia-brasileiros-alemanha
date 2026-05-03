@@ -2,9 +2,17 @@
 
 Aqui você encontra links selecionados e um roteiro sugerido por fases (antes de vir, primeira semana e primeiros 90 dias) para quem está planejando a mudança ou já mora na Alemanha.
 
+## Situações comuns
+
+--8<-- "_includes/resolver-agora.md"
+
+[Abrir em página própria](resolver-agora.md).
+
+---
+
 ## Comece por aqui
 
-Se você está no início do processo, siga esta ordem:
+**Linha do tempo** (preparação antes de viajar → primeira semana aqui → primeiros 90 dias no país):
 
 1. [Antes de vir](guides/before-arrival.md)
 2. [Primeira semana](guides/first-week.md)

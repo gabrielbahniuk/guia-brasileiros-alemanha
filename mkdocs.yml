@@ -14,12 +14,18 @@ plugins:
 
 markdown_extensions:
   - admonition
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
+  - pymdownx.snippets:
+      base_path: ["."]
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
       emoji_index: !!python/name:pymdownx.emoji.gemoji
 
 nav:
   - Início: index.md
+  - Situações comuns: resolver-agora.md
   - Comece aqui:
       - Antes de vir: guides/before-arrival.md
       - Primeira semana: guides/first-week.md

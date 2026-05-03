@@ -4,6 +4,7 @@ Toda contribuição é bem-vinda.
 
 ## Estrutura de conteúdo
 
+- A seção **Situações comuns** vem do fragmento `_includes/resolver-agora.md` (incluído na home e em `docs/resolver-agora.md`; os links ali são relativos à pasta `docs/`).
 - Conteúdo principal em `docs/topics/*.md`
 - Conteúdo por cidade em `docs/cities/*.md`
 - Texto dos arquivos em pt-BR
