@@ -48,7 +48,7 @@ Nas situações comuns abaixo, escolha a que mais combina com a sua — um camin
 
 **Próximo passo:** se for mudar de cidade ou fechar um contrato novo, veja também [Produtos e serviços](topics/products-services.md) para eletrodomésticos e segunda mão, quando fizer sentido.
 
-### Carro, transporte ou carta de motorista
+### Carro, transporte ou carteira de motorista
 
 **Faça primeiro**
 

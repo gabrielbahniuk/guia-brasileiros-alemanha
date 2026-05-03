@@ -1,6 +1,6 @@
 # Situações comuns
 
---8<-- "_includes/resolver-agora.md"
+--8<-- "_includes/common-situations.md"
 
 ---
 

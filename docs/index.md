@@ -4,9 +4,9 @@ Aqui você encontra links selecionados e um roteiro sugerido por fases (antes de
 
 ## Situações comuns
 
---8<-- "_includes/resolver-agora.md"
+--8<-- "_includes/common-situations.md"
 
-[Abrir em página própria](resolver-agora.md).
+[Abrir em página própria](common-situations.md).
 
 ---
 
