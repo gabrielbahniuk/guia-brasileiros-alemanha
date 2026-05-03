@@ -1,6 +1,6 @@
-# Lista útil válida para a Alemanha :de: :book:
+# Guia rápido para brasileiros na Alemanha :de: :book:
 
-Esta lista tem por objetivo facilitar a vinda de brasileiros(as) (ou falantes da língua portuguesa) que desejam morar na Alemanha.
+Aqui você encontra links selecionados e um roteiro sugerido por fases (antes de vir, primeira semana e primeiros 90 dias) para quem está planejando a mudança ou já mora na Alemanha.
 
 ## Comece por aqui
 
@@ -17,7 +17,7 @@ Se você está no início do processo, siga esta ordem:
 - Saúde e médicos: [Saúde](topics/health.md)
 - Comparação de preços: [Comparação de preços](topics/price-comparison.md)
 - Mobilidade e carro: [Automóveis](topics/vehicles.md)
-- Direitos e apoio juridico: [Advocacia](topics/legal.md)
+- Direitos e apoio jurídico: [Advocacia](topics/legal.md)
 
 ## Por tema
 
@@ -35,11 +35,11 @@ Se você está no início do processo, siga esta ordem:
 
 - [Stuttgart e região](cities/stuttgart.md)
 
-## Como ler esta lista
+## Como usar este guia
 
-- **Tema (Alemanha):** recursos nacionais ou válidos para várias regiões.
+- **Tema (Alemanha):** recursos válidos para o país inteiro ou para várias regiões.
 - **Cidade:** recursos locais (ex.: contatos de Stuttgart e região).
-- **Curadoria:** priorizamos links úteis para execução prática, não listas gigantes.
+- **Seleção:** priorizamos links que ajudam no dia a dia, sem virar mural infinito de links.
 
 ## Listas semelhantes
 

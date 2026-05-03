@@ -13,4 +13,4 @@
 - [Glória Bezerra de Menezes](https://www.facebook.com/gloria.bezerrademenezes/)
 - [Luciano Carrasqueira](https://www.facebook.com/luciano.carrasqueira.9/)
 
-**Dica prática:** ao contactar, explique seu caso em 4-5 linhas e pergunte valor da primeira consulta.
+**Dica prática:** na hora de entrar em contato, explique seu caso em 4-5 linhas e pergunte o valor da primeira consulta.

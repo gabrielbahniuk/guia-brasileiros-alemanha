@@ -2,7 +2,7 @@
 
 ## Os links são todos oficiais?
 
-Não. A lista mistura links oficiais, comerciais e de comunidade. Sempre valide informações sensíveis em fontes oficiais.
+Não. O guia reúne links oficiais, comerciais e de comunidade. Sempre confira informações sensíveis em fontes oficiais.
 
 ## Qual a diferença entre "Por tema" e "Por cidade"?
 

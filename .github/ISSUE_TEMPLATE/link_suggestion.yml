@@ -1,13 +1,13 @@
 name: Sugerir link
-description: Sugira um novo link para a lista
-title: "[Sugestao] "
+description: Sugira um novo link para o guia
+title: "[Sugestão] "
 labels:
   - suggestion
 body:
   - type: dropdown
     id: section
     attributes:
-      label: Secao
+      label: Seção
       description: Onde este link deveria entrar?
       options:
         - Tema (Alemanha)
@@ -26,7 +26,7 @@ body:
     id: name
     attributes:
       label: Nome do recurso
-      placeholder: Ex. Nome do site/servico
+      placeholder: Ex. Nome do site/serviço
     validations:
       required: true
   - type: input

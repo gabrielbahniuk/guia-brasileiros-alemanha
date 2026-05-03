@@ -1,8 +1,8 @@
-# Lista útil válida para a Alemanha :de: :book:
+# Guia rápido para brasileiros na Alemanha :de: :book:
 
-## Objetivo
+## Sobre
 
-Esta lista tem por único objetivo facilitar a vinda de brasileiros(as) (ou falantes da língua portuguesa) que desejam morar na Alemanha.
+Este repositório é um guia rápido com links selecionados e roteiros por fase (antes de vir, primeira semana, primeiros 90 dias) para quem está planejando a mudança ou já mora na Alemanha.
 
 ## Site
 
