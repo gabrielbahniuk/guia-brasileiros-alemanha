@@ -9,4 +9,6 @@ exclude = [
   '^https://(www\.)?immowelt\.de/',
   '^https://(www\.)?anwalt24\.de/',
   '^https://(www\.)?xxxlutz\.de/',
+  '^https://(www\.)?saturn\.de/',
+  '^https://(www\.)?mediamarkt\.de/',
 ]
