@@ -4,7 +4,7 @@
 
 **Nível de confiança:** portais consolidados de busca de imóveis.
 
-[YouTube — busca sugerida: alugar apartamento na Alemanha](https://www.youtube.com/results?search_query=alugar+apartamento+na+alemanha+dicas) (o vídeo que estava aqui deixou de existir; escolha um resultado recente)
+ (o vídeo que estava aqui deixou de existir; escolha um resultado recente)
 [Video: Comprando uma casa na Alemanha](https://www.youtube.com/watch?v=_XFW1fJZTlo)
 
 ###### Sites para alugar ou comprar imóveis:
