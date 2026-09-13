@@ -16,6 +16,5 @@ Ex.: Contrato de energia por 12 meses.
 ##### Links:
 
 - [Check24](https://www.check24.de/)
-- [Verivox](https://www.verivox.de/)
 
 **Dica prática:** compare pelo menos 2 opções e guarde screenshot/valor antes de concluir.
