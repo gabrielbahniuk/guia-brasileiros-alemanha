@@ -56,4 +56,4 @@ Aqui você encontra links selecionados e um roteiro sugerido por fases (antes de
 
 ## Contribua
 
-Para contribuir, veja o [guia de contribuição](https://github.com/gabrielbahniuk/guia-brasileiros-alemanha/blob/main/CONTRIBUTING.md).
+Para contribuir, veja o .
